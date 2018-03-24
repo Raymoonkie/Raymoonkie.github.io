@@ -460,6 +460,9 @@
           
 
   
+      <div id="gitalk-container"></div>
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
     </div>
 
 
@@ -717,6 +720,26 @@
 
 
 
+
+
+  
+    
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script type="text/javascript">
+        const gitalk = new Gitalk({
+          clientID: '051e0c923762a63fd134',
+          clientSecret: 'aafb2fb172259380fd7e5ec66361fecdd4791938',
+          repo: 'Raymoonkie.github.io',
+          owner: 'Raymoonkie',
+          admin: 'Raymoonkie'.split(','),
+          pagerDirection: 'last',
+          // facebook-like distraction free mode
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+      </script>
+    
+  
 
   
 
