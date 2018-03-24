@@ -376,22 +376,18 @@
         
           
             <h1 id="搭建伪分布式-Hadoop-集群"><a href="#搭建伪分布式-Hadoop-集群" class="headerlink" title="搭建伪分布式 Hadoop 集群"></a>搭建伪分布式 Hadoop 集群</h1><p><strong>本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。</strong></p>
-<h2 id="环境及对应软件版本"><a href="#环境及对应软件版本" class="headerlink" title="环境及对应软件版本"></a>环境及对应软件版本</h2><blockquote>
-<ul>
+<h2 id="环境及对应软件版本"><a href="#环境及对应软件版本" class="headerlink" title="环境及对应软件版本"></a>环境及对应软件版本</h2><ul>
 <li><strong>VMware® Workstation 12 Pro  12.5.7 build-5813279</strong></li>
 <li><strong>CentOS Linux 7</strong></li>
 <li><strong>Hadoop 2.8.1</strong></li>
 <li><strong>openjdk 1.8.0_141</strong></li>
 </ul>
-</blockquote>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><blockquote>
-<ul>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
 <li><strong><a href="https://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-common/ClusterSetup.html" target="_blank" rel="noopener">Apache Hadoop 2.8.0官方文档</a></strong></li>
 <li><strong><a href="http://www.jianshu.com/p/fb32239ccf2b" target="_blank" rel="noopener">CentOS 7 下关于时间和日期以及时间同步的应用</a></strong></li>
 <li><strong><a href="https://www.zybuluo.com/Emptyset/note/220230" target="_blank" rel="noopener">Hadoop完全分布式集群搭建手记</a></strong></li>
 <li><strong><a href="http://www.linuxidc.com/Linux/2015-03/114669p4.htm" target="_blank" rel="noopener">Hadoop入门基础教程  Hadoop之完全分布式环境搭建</a></strong></li>
 </ul>
-</blockquote>
 <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="配置CentOS"><a href="#配置CentOS" class="headerlink" title="配置CentOS"></a>配置CentOS</h3><h4 id="添加用户，并赋予用户系统权限"><a href="#添加用户，并赋予用户系统权限" class="headerlink" title="添加用户，并赋予用户系统权限"></a>添加用户，并赋予用户系统权限</h4><p>&emsp;1. 为Hadoop添加一个用户，用于进行各种配置。</p>
 <ul>
 <li>执行命令 <strong><code>su  -</code></strong>切换到<strong>root</strong>用户。</li>
