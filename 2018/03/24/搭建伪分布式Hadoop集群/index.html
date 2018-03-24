@@ -99,17 +99,17 @@
 
 
 
-  <meta name="description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。  [TOC]  环境及对应软件版本  VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141   参考文档  Apache Hadoop 2">
+  <meta name="description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。 环境及对应软件版本  VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141   参考文档  Apache Hadoop 2.8.0官方文档">
 <meta name="keywords" content="Hadoop,环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="demo">
 <meta property="og:url" content="https://moonkie.xyz/2018/03/24/搭建伪分布式Hadoop集群/index.html">
 <meta property="og:site_name" content="moonkie blog">
-<meta property="og:description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。  [TOC]  环境及对应软件版本  VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141   参考文档  Apache Hadoop 2">
-<meta property="og:updated_time" content="2018-03-24T16:50:11.739Z">
+<meta property="og:description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。 环境及对应软件版本  VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141   参考文档  Apache Hadoop 2.8.0官方文档">
+<meta property="og:updated_time" content="2018-03-24T16:58:10.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="demo">
-<meta name="twitter:description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。  [TOC]  环境及对应软件版本  VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141   参考文档  Apache Hadoop 2">
+<meta name="twitter:description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。 环境及对应软件版本  VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141   参考文档  Apache Hadoop 2.8.0官方文档">
 
 
 
@@ -376,9 +376,6 @@
 
       
         <h1 id="搭建伪分布式-Hadoop-集群"><a href="#搭建伪分布式-Hadoop-集群" class="headerlink" title="搭建伪分布式 Hadoop 集群"></a>搭建伪分布式 Hadoop 集群</h1><p><strong>本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。</strong></p>
-<hr>
-<p>[TOC]</p>
-<hr>
 <h2 id="环境及对应软件版本"><a href="#环境及对应软件版本" class="headerlink" title="环境及对应软件版本"></a>环境及对应软件版本</h2><blockquote>
 <ul>
 <li><strong>VMware® Workstation 12 Pro  12.5.7 build-5813279</strong></li>
@@ -395,8 +392,7 @@
 <li><strong><a href="http://www.linuxidc.com/Linux/2015-03/114669p4.htm" target="_blank" rel="noopener">Hadoop入门基础教程  Hadoop之完全分布式环境搭建</a></strong></li>
 </ul>
 </blockquote>
-<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="配置CentOS"><a href="#配置CentOS" class="headerlink" title="配置CentOS"></a>配置CentOS</h3><p>####添加用户，并赋予用户系统权限</p>
-<p>&emsp;1. 为Hadoop添加一个用户，用于进行各种配置。</p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="配置CentOS"><a href="#配置CentOS" class="headerlink" title="配置CentOS"></a>配置CentOS</h3><h4 id="添加用户，并赋予用户系统权限"><a href="#添加用户，并赋予用户系统权限" class="headerlink" title="添加用户，并赋予用户系统权限"></a>添加用户，并赋予用户系统权限</h4><p>&emsp;1. 为Hadoop添加一个用户，用于进行各种配置。</p>
 <ul>
 <li>执行命令 <strong><code>su  -</code></strong>切换到<strong>root</strong>用户。</li>
 <li>执行命令<strong><code>groupadd hadoop</code></strong>，添加一个名为<strong>hadoop</strong>的用户组。</li>
@@ -412,8 +408,7 @@
 <li>保存并退出。</li>
 <li>执行命令<strong><code>chmod u-w /etc/sudoers</code></strong> 撤销文件的写权限。</li>
 </ul>
-<p>####设置时钟同步</p>
-<p>&emsp;从CentOS 7开始，时间设置使用了一个新的命令 <strong>timedatectl。</strong></p>
+<h4 id="设置时钟同步"><a href="#设置时钟同步" class="headerlink" title="设置时钟同步"></a>设置时钟同步</h4><p>&emsp;从CentOS 7开始，时间设置使用了一个新的命令 <strong>timedatectl。</strong></p>
 <ul>
 <li>执行命令 <strong><code>su - hadoop</code></strong>，切换回<strong>hadoop</strong>用户。</li>
 <li>执行命令 <strong><code>timedatectl status</code></strong>, 查看当前时间。</li>
@@ -430,8 +425,7 @@
 <li>添加<strong><code>SELINUX=disabled</code></strong>。</li>
 <li>保存并退出。</li>
 </ul>
-<p>###配置Java环境</p>
-<p>&emsp;关于jdk版本的选择需要考虑到Hadoop的兼容性，具体参考<a href="https://wiki.apache.org/hadoop/HadoopJavaVersions" target="_blank" rel="noopener">HadoopJavaVersions</a>。不必特意使用 rpm卸载 Java，因为 rpm 可以在安装新版本时自动卸载旧版本的 Java，除非您准备永久删除 Java。</p>
+<h3 id="配置Java环境"><a href="#配置Java环境" class="headerlink" title="配置Java环境"></a>配置Java环境</h3><p>&emsp;关于jdk版本的选择需要考虑到Hadoop的兼容性，具体参考<a href="https://wiki.apache.org/hadoop/HadoopJavaVersions" target="_blank" rel="noopener">HadoopJavaVersions</a>。不必特意使用 rpm卸载 Java，因为 rpm 可以在安装新版本时自动卸载旧版本的 Java，除非您准备永久删除 Java。</p>
 <p>####安装</p>
 <ul>
 <li>执行命令 <strong><code>yum list java*</code></strong>，查看以<strong>Java</strong>关键字 开头的包。</li>
@@ -449,8 +443,7 @@
 <li><p>保存并关闭文件，执行命令<strong><code>source  /etc/profile</code></strong> 使变动生效。</p>
 </li>
 </ul>
-<p>###配置SSH免密钥登录</p>
-<h4 id="安装ssh"><a href="#安装ssh" class="headerlink" title="安装ssh"></a>安装ssh</h4><p>&emsp; 通过安装并配置<strong>ssh</strong>， 可以使用Hadoop脚本管理远程Hadoop守护程序，省去反复输入密码的麻烦。</p>
+<h3 id="配置SSH免密钥登录"><a href="#配置SSH免密钥登录" class="headerlink" title="配置SSH免密钥登录"></a>配置SSH免密钥登录</h3><h4 id="安装ssh"><a href="#安装ssh" class="headerlink" title="安装ssh"></a>安装ssh</h4><p>&emsp; 通过安装并配置<strong>ssh</strong>， 可以使用Hadoop脚本管理远程Hadoop守护程序，省去反复输入密码的麻烦。</p>
 <ul>
 <li>执行命令 <strong><code>yum install openssh-server -y</code></strong>，安装<strong>ssh</strong>对应的包。</li>
 <li>配置<strong>ssh</strong>服务，也可跳过这步选择默认的配置。 <strong>OpenSSH</strong>的配置文件：<strong><code>/etc/ssh/sshd_config</code></strong>，可选的常用的配置如下：</li>
@@ -511,7 +504,7 @@
 </ol>
 <p>​      &emsp;设置<strong>host</strong>文件可以使计算机之间通过计算机名进行访问。执行命令<strong><code>sudo vim /etc/hosts</code></strong>，在文件的末尾添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.1(Master&apos;s IP)    Master</span><br><span class="line">192.168.1.2(Node1&apos;s IP)     Node1</span><br><span class="line">192.168.1.3(Node2&apos;s IP)     Node2</span><br></pre></td></tr></table></figure></p>
 <p>​    &emsp;保存并关闭文件。 随后，分别在Node1和Node2节点上重复上述操作。</p>
-<h4 id="配置SSH免密钥登录"><a href="#配置SSH免密钥登录" class="headerlink" title="配置SSH免密钥登录"></a>配置SSH免密钥登录</h4><p> &emsp;以 <strong>Master</strong> 为例，任何一台机器的<strong><code>~/.ssh/authorized_keys</code></strong>里保存了<strong>Master</strong>这台机器的公钥<strong><code>id_rsa.pub</code></strong>，那么这台机器就可以被<strong>Master</strong>用免密码方式<strong>ssh</strong>登录。所以，在下面的配置中，我们需要在每一个节点的<strong><code>~/.ssh/authorized_keys</code></strong>里添加另外两个节点的公钥<strong><code>id_rsa.pub</code></strong>。</p>
+<h4 id="配置SSH免密钥登录-1"><a href="#配置SSH免密钥登录-1" class="headerlink" title="配置SSH免密钥登录"></a>配置SSH免密钥登录</h4><p> &emsp;以 <strong>Master</strong> 为例，任何一台机器的<strong><code>~/.ssh/authorized_keys</code></strong>里保存了<strong>Master</strong>这台机器的公钥<strong><code>id_rsa.pub</code></strong>，那么这台机器就可以被<strong>Master</strong>用免密码方式<strong>ssh</strong>登录。所以，在下面的配置中，我们需要在每一个节点的<strong><code>~/.ssh/authorized_keys</code></strong>里添加另外两个节点的公钥<strong><code>id_rsa.pub</code></strong>。</p>
 <ul>
 <li>在 <strong>Master、Node1、Node2</strong> 结点分别执行命令<strong><code>ssh-keygen -t rsa -P &#39;&#39; -f ~/.ssh/id_rsa</code></strong>，生成各自的密钥。</li>
 <li>在 <strong>Master、Node1、Node2</strong> 结点分别执行命令<strong><code>cd ~/.ssh</code></strong>，进入到各自密钥所在目录。</li>
@@ -541,9 +534,8 @@
 </li>
 <li><p>执行命令<strong><code>rm -rf  /home/hadoop/hadoop-2.8.1.tar.gz</code></strong>，删除压缩包文件。</p>
 <p>​</p>
-</li>
+<h5 id="Hadoop-配置"><a href="#Hadoop-配置" class="headerlink" title="Hadoop 配置"></a>Hadoop 配置</h5></li>
 </ul>
-<p>#####Hadoop 配置</p>
 <p>&emsp;研究了好久，我个人觉得Hadoop的配置属于可选性配置。它提供了很多可选的配置满足不同的需求，这就很头大。全部配上去似乎很搞笑，但随意配几个又怕遗漏什么东西。我试图找出那些必须的配置，但失败了。目前就只能参考网上的博客中的通用配置。关于每项配置的具体含义，请参考<a href="https://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-common/ClusterSetup.html" target="_blank" rel="noopener">Apache Hadoop 2.8.0官方文档</a></p>
 <ol>
 <li>配置Hadoop环境变量</li>
@@ -590,15 +582,13 @@
 <p>&emsp;该文件属于<strong>namenode</strong>节点独有，用于指定所有<strong>datanode</strong>所在节点。<br>执行命令<strong><code>sudo vim slave</code></strong>，打开配置文件，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;删除<strong>localhost</strong>，添加 <strong>2</strong> 个<strong>datanode</strong>的主机名，修改后内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Node1</span><br><span class="line">Node2</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;保存并退出。<strong>Master</strong> 节点的所有环境配置到此结束。</p>
-<h4 id="Slave节点环境配置"><a href="#Slave节点环境配置" class="headerlink" title="Slave节点环境配置"></a>Slave节点环境配置</h4><p>#####复制Hadoop环境</p>
-<p>&emsp;在<strong>Node1</strong>和<strong>Node2</strong>节点进行环境配置时，本应重复<strong>3.1</strong>中的所有步骤。但为了方便起见，我们可以将<strong>Master</strong>结点配置好的<strong>Hadoop</strong>复制到<strong>Node1</strong>和<strong>Node2</strong>节点。 在<strong>Master</strong> 节点中，分别执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp –r ~/hadoop hadoop@Node1:~/</span><br><span class="line">scp –r ~/hadoop hadoop@Node2:~/</span><br></pre></td></tr></table></figure></p>
+<h4 id="Slave节点环境配置"><a href="#Slave节点环境配置" class="headerlink" title="Slave节点环境配置"></a>Slave节点环境配置</h4><h5 id="复制Hadoop环境"><a href="#复制Hadoop环境" class="headerlink" title="复制Hadoop环境"></a>复制Hadoop环境</h5><p>&emsp;在<strong>Node1</strong>和<strong>Node2</strong>节点进行环境配置时，本应重复<strong>3.1</strong>中的所有步骤。但为了方便起见，我们可以将<strong>Master</strong>结点配置好的<strong>Hadoop</strong>复制到<strong>Node1</strong>和<strong>Node2</strong>节点。 在<strong>Master</strong> 节点中，分别执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp –r ~/hadoop hadoop@Node1:~/</span><br><span class="line">scp –r ~/hadoop hadoop@Node2:~/</span><br></pre></td></tr></table></figure></p>
 <p> &emsp;完成环境的复制。</p>
 <h5 id="删除slaves文件"><a href="#删除slaves文件" class="headerlink" title="删除slaves文件"></a>删除slaves文件</h5><p> &emsp;因为<strong>slaves</strong>文件是<strong>namenode</strong>节点所独有的，所以我们要删除<strong>Node1</strong>和<strong>Node2</strong>节点中的<strong>slaves</strong>文件。<br>在<strong>Node1</strong>和<strong>Node2</strong>节点中分别执行下面这条命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  ~/hadoop/etc/hadoop/slaves</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;完成该文件的删除。</p>
 <h5 id="配置Hadoop环境变量"><a href="#配置Hadoop环境变量" class="headerlink" title="配置Hadoop环境变量"></a>配置Hadoop环境变量</h5><p>&emsp;在<strong>Node1</strong>和<strong>Node2</strong>节点，分别执行命令<strong><code>sudo vim /etc/profile</code></strong>，打开系统配置文件，在末尾添加以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#HADOOP</span><br><span class="line">export HADOOP_HOME=/home/hadoop/hadoop</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;执行命令<strong><code>source /etc/profile</code></strong>，使命令在当前终端生效，完成环境变量的配置。<strong>Node1</strong> 和<strong>Node2</strong> 节点的所有环境配置到此结束。</p>
-<p>###启动并运行Hadoop</p>
-<h4 id="格式化HDFS文件系统"><a href="#格式化HDFS文件系统" class="headerlink" title="格式化HDFS文件系统"></a>格式化HDFS文件系统</h4><p>&emsp;在第一次启动<strong>HDFS</strong>文件系统之前，我们需要对其进行格式化。格式化操作必须在在<strong>namenode</strong>节点上通过<strong>hadoop</strong>用户执行，而且只需要执行一次，下次启动时不再需要格式化操作，直接启动对应的服务即可。<br>执行命令<strong><code>hadoop/bin/hdfs namenode -format</code></strong>，完成初始化操作。</p>
+<h3 id="启动并运行Hadoop"><a href="#启动并运行Hadoop" class="headerlink" title="启动并运行Hadoop"></a>启动并运行Hadoop</h3><h4 id="格式化HDFS文件系统"><a href="#格式化HDFS文件系统" class="headerlink" title="格式化HDFS文件系统"></a>格式化HDFS文件系统</h4><p>&emsp;在第一次启动<strong>HDFS</strong>文件系统之前，我们需要对其进行格式化。格式化操作必须在在<strong>namenode</strong>节点上通过<strong>hadoop</strong>用户执行，而且只需要执行一次，下次启动时不再需要格式化操作，直接启动对应的服务即可。<br>执行命令<strong><code>hadoop/bin/hdfs namenode -format</code></strong>，完成初始化操作。</p>
 <h4 id="启动Hadoop集群"><a href="#启动Hadoop集群" class="headerlink" title="启动Hadoop集群"></a>启动Hadoop集群</h4><p>要启动<strong>Hadoop</strong>集群，我们需要启动<strong>HDFS</strong>和<strong>YARN</strong>集群。</p>
 <ul>
 <li>执行命令<strong><code>hadoop/sbin/start-dfs.sh</code></strong>，启动<strong>HDFS</strong>。</li>
@@ -828,7 +818,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建伪分布式-Hadoop-集群"><span class="nav-number">1.</span> <span class="nav-text">搭建伪分布式 Hadoop 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境及对应软件版本"><span class="nav-number">1.1.</span> <span class="nav-text">环境及对应软件版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">1.2.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-number">1.3.</span> <span class="nav-text">详细步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置CentOS"><span class="nav-number">1.3.1.</span> <span class="nav-text">配置CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭SELINUX"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">关闭SELINUX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ssh"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">安装ssh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主机名及host文件"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">修改主机名及host文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置SSH免密钥登录"><span class="nav-number">1.3.1.6.</span> <span class="nav-text">配置SSH免密钥登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Hadoop环境"><span class="nav-number">1.3.2.</span> <span class="nav-text">配置Hadoop环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Master节点环境配置"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">Master节点环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hadoop-安装"><span class="nav-number">1.3.2.1.1.</span> <span class="nav-text">Hadoop 安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slave节点环境配置"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Slave节点环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#删除slaves文件"><span class="nav-number">1.3.2.2.1.</span> <span class="nav-text">删除slaves文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置Hadoop环境变量"><span class="nav-number">1.3.2.2.2.</span> <span class="nav-text">配置Hadoop环境变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化HDFS文件系统"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">格式化HDFS文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动Hadoop集群"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">启动Hadoop集群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看集群状态"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">查看集群状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭Hadoop集群"><span class="nav-number">1.3.2.6.</span> <span class="nav-text">关闭Hadoop集群</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建伪分布式-Hadoop-集群"><span class="nav-number">1.</span> <span class="nav-text">搭建伪分布式 Hadoop 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境及对应软件版本"><span class="nav-number">1.1.</span> <span class="nav-text">环境及对应软件版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">1.2.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-number">1.3.</span> <span class="nav-text">详细步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置CentOS"><span class="nav-number">1.3.1.</span> <span class="nav-text">配置CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加用户，并赋予用户系统权限"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">添加用户，并赋予用户系统权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置时钟同步"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">设置时钟同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭SELINUX"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">关闭SELINUX</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Java环境"><span class="nav-number">1.3.2.</span> <span class="nav-text">配置Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH免密钥登录"><span class="nav-number">1.3.3.</span> <span class="nav-text">配置SSH免密钥登录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ssh"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">安装ssh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主机名及host文件"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">修改主机名及host文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置SSH免密钥登录-1"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">配置SSH免密钥登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Hadoop环境"><span class="nav-number">1.3.4.</span> <span class="nav-text">配置Hadoop环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Master节点环境配置"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">Master节点环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hadoop-安装"><span class="nav-number">1.3.4.1.1.</span> <span class="nav-text">Hadoop 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hadoop-配置"><span class="nav-number">1.3.4.1.2.</span> <span class="nav-text">Hadoop 配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slave节点环境配置"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">Slave节点环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#复制Hadoop环境"><span class="nav-number">1.3.4.2.1.</span> <span class="nav-text">复制Hadoop环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除slaves文件"><span class="nav-number">1.3.4.2.2.</span> <span class="nav-text">删除slaves文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置Hadoop环境变量"><span class="nav-number">1.3.4.2.3.</span> <span class="nav-text">配置Hadoop环境变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动并运行Hadoop"><span class="nav-number">1.3.5.</span> <span class="nav-text">启动并运行Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化HDFS文件系统"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">格式化HDFS文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动Hadoop集群"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">启动Hadoop集群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看集群状态"><span class="nav-number">1.3.5.3.</span> <span class="nav-text">查看集群状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭Hadoop集群"><span class="nav-number">1.3.5.4.</span> <span class="nav-text">关闭Hadoop集群</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
