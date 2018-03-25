@@ -102,13 +102,13 @@
   <meta name="description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。 环境及对应软件版本 VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141  参考文档 Apache Hadoop 2.8.0官方文档 Ce">
 <meta name="keywords" content="Hadoop,环境搭建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="demo">
+<meta property="og:title" content="搭建伪分布式 Hadoop 集群">
 <meta property="og:url" content="https://moonkie.xyz/2018/03/24/搭建伪分布式Hadoop集群/index.html">
 <meta property="og:site_name" content="moonkie blog">
 <meta property="og:description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。 环境及对应软件版本 VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141  参考文档 Apache Hadoop 2.8.0官方文档 Ce">
-<meta property="og:updated_time" content="2018-03-24T17:01:49.170Z">
+<meta property="og:updated_time" content="2018-03-25T02:08:51.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="demo">
+<meta name="twitter:title" content="搭建伪分布式 Hadoop 集群">
 <meta name="twitter:description" content="搭建伪分布式 Hadoop 集群本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。 环境及对应软件版本 VMware® Workstation 12 Pro  12.5.7 build-5813279 CentOS Linux 7 Hadoop 2.8.1 openjdk 1.8.0_141  参考文档 Apache Hadoop 2.8.0官方文档 Ce">
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>demo | moonkie blog</title>
+  <title>搭建伪分布式 Hadoop 集群 | moonkie blog</title>
   
 
 
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">demo</h1>
+          <h1 class="post-title" itemprop="name headline">搭建伪分布式 Hadoop 集群</h1>
         
 
         <div class="post-meta">
@@ -996,6 +996,7 @@
   
     
       <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
       <script type="text/javascript">
         const gitalk = new Gitalk({
           clientID: '051e0c923762a63fd134',
@@ -1004,7 +1005,7 @@
           owner: 'Raymoonkie',
           admin: 'Raymoonkie'.split(','),
           pagerDirection: 'last',
-          // facebook-like distraction free mode
+          id: md5(window.location.pathname),
           distractionFreeMode: false
         })
         gitalk.render('gitalk-container')
