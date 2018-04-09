@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
@@ -99,17 +99,17 @@
 
 
 
-  <meta name="description" content="搭建伪分布式 Hadoop 集群&amp;emsp;本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。">
+  <meta name="description" content="&amp;emsp;&amp;emsp; 本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。">
 <meta name="keywords" content="Hadoop,环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建伪分布式 Hadoop 集群">
 <meta property="og:url" content="https://moonkie.xyz/2018/03/24/搭建伪分布式Hadoop集群/index.html">
 <meta property="og:site_name" content="moonkie">
-<meta property="og:description" content="搭建伪分布式 Hadoop 集群&amp;emsp;本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。">
-<meta property="og:updated_time" content="2018-03-25T04:07:45.692Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp; 本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。">
+<meta property="og:updated_time" content="2018-04-09T03:21:20.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建伪分布式 Hadoop 集群">
-<meta name="twitter:description" content="搭建伪分布式 Hadoop 集群&amp;emsp;本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp; 本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。">
 
 
 
@@ -172,7 +172,7 @@
       .logo-line-after i { right: initial; }
     }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -183,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -408,7 +408,7 @@
                 
                   <span class="post-meta-item-text">Symbol count:</span>
                 
-                <span title="Symbols count in article">3,625</span>
+                <span title="Symbols count in article">3,616</span>
               
 
               
@@ -442,7 +442,7 @@
       
 
       
-        <h1 id="搭建伪分布式-Hadoop-集群"><a href="#搭建伪分布式-Hadoop-集群" class="headerlink" title="搭建伪分布式 Hadoop 集群"></a>搭建伪分布式 Hadoop 集群</h1><p>&emsp;本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。</p>
+        <p>&emsp;&emsp; 本次练习想要搭建一个3个结点的伪分布式Hadoop集群，并使用Markdown记录整个过程。</p>
 <a id="more"></a>
 <h2 id="环境及对应软件版本"><a href="#环境及对应软件版本" class="headerlink" title="环境及对应软件版本"></a>环境及对应软件版本</h2><ul>
 <li><strong>VMware® Workstation 12 Pro  12.5.7 build-5813279</strong></li>
@@ -490,8 +490,7 @@
 <li>保存并退出。</li>
 </ul>
 <h3 id="配置Java环境"><a href="#配置Java环境" class="headerlink" title="配置Java环境"></a>配置Java环境</h3><p>&emsp;关于jdk版本的选择需要考虑到Hadoop的兼容性，具体参考<a href="https://wiki.apache.org/hadoop/HadoopJavaVersions" target="_blank" rel="noopener">HadoopJavaVersions</a>。不必特意使用 rpm卸载 Java，因为 rpm 可以在安装新版本时自动卸载旧版本的 Java，除非您准备永久删除 Java。</p>
-<p>####安装</p>
-<ul>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
 <li>执行命令 <strong><code>yum list java*</code></strong>，查看以<strong>Java</strong>关键字 开头的包。</li>
 <li>执行命令<strong><code>sudo yum install java-1.8.0-openjdk*</code></strong>, 安装<strong>openjdk1.8</strong>(此处的jdk版本可以自行选择)。</li>
 <li>一路输入<strong><code>yes</code></strong>, 等待安装结束。</li>
@@ -514,6 +513,7 @@
 <li>执行命令<strong><code>systemctl reload sshd</code></strong>， 重启<strong>ssh</strong> 服务。</li>
 <li>执行命令<strong><code>systemctl enable sshd</code></strong>，设置开机自启。</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -556,12 +556,13 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>&emsp;以上的配置需要在每台CentOS虚拟机上进行操作，我们可以在一台虚拟机上完成所有配置，然后再克隆出两份，所以我们就有了三台配置好的虚拟机。我们分别给三台虚拟机起名叫Master、Node1、Node2。其中Master作为namenode，Node1、Node2作为datanode。</p>
 <p>&emsp;执行命令<strong><code>su - hadoop</code></strong>切换到hadoop用户，以下所有操作均需在hadoop用户下执行。</p>
 <h4 id="修改主机名及host文件"><a href="#修改主机名及host文件" class="headerlink" title="修改主机名及host文件"></a>修改主机名及host文件</h4><p>&emsp;以下操作需要分别在Master、Node1、Node2三个结点上分别完整执行一次。首先我们以Master节点为例：</p>
 <ol>
 <li><p>修改主机名</p>
-<p>&emsp;修改主机名主要是为了方便辨识。执行命令<strong>hostnamectl set-hostname Master   –static</strong>，即可将<strong>hostname</strong>设置为<strong>Master</strong>。</p>
+<p>&emsp;修改主机名主要是为了方便辨识。执行命令<strong>hostnamectl set-hostname Master   —static</strong>，即可将<strong>hostname</strong>设置为<strong>Master</strong>。</p>
 </li>
 <li><p>设置host文件</p>
 </li>
@@ -669,6 +670,7 @@
 <ol>
 <li>通过<strong>web</strong>界面查看</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -687,6 +689,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="关闭Hadoop集群"><a href="#关闭Hadoop集群" class="headerlink" title="关闭Hadoop集群"></a>关闭Hadoop集群</h4><p>要关闭<strong>Hadoop</strong>集群，我们同样需要关闭<strong>HDFS</strong>和<strong>YARN</strong>集群。</p>
 <ul>
 <li>执行命令<strong><code>hadoop/sbin/stop-dfs.sh</code></strong>，关闭<strong>HDFS</strong>。</li>
@@ -746,6 +749,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/08/并行计算性能测评/" rel="prev" title="并行计算性能测评">
+                并行计算性能测评 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -848,7 +855,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -865,7 +872,9 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -882,7 +891,15 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -918,7 +935,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建伪分布式-Hadoop-集群"><span class="nav-number">1.</span> <span class="nav-text">搭建伪分布式 Hadoop 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境及对应软件版本"><span class="nav-number">1.1.</span> <span class="nav-text">环境及对应软件版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">1.2.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-number">1.3.</span> <span class="nav-text">详细步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置CentOS"><span class="nav-number">1.3.1.</span> <span class="nav-text">配置CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加用户，并赋予用户系统权限"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">添加用户，并赋予用户系统权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置时钟同步"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">设置时钟同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭SELINUX"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">关闭SELINUX</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Java环境"><span class="nav-number">1.3.2.</span> <span class="nav-text">配置Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH免密钥登录"><span class="nav-number">1.3.3.</span> <span class="nav-text">配置SSH免密钥登录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ssh"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">安装ssh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主机名及host文件"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">修改主机名及host文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置SSH免密钥登录-1"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">配置SSH免密钥登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Hadoop环境"><span class="nav-number">1.3.4.</span> <span class="nav-text">配置Hadoop环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Master节点环境配置"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">Master节点环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hadoop-安装"><span class="nav-number">1.3.4.1.1.</span> <span class="nav-text">Hadoop 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hadoop-配置"><span class="nav-number">1.3.4.1.2.</span> <span class="nav-text">Hadoop 配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slave节点环境配置"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">Slave节点环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#复制Hadoop环境"><span class="nav-number">1.3.4.2.1.</span> <span class="nav-text">复制Hadoop环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除slaves文件"><span class="nav-number">1.3.4.2.2.</span> <span class="nav-text">删除slaves文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置Hadoop环境变量"><span class="nav-number">1.3.4.2.3.</span> <span class="nav-text">配置Hadoop环境变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动并运行Hadoop"><span class="nav-number">1.3.5.</span> <span class="nav-text">启动并运行Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化HDFS文件系统"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">格式化HDFS文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动Hadoop集群"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">启动Hadoop集群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看集群状态"><span class="nav-number">1.3.5.3.</span> <span class="nav-text">查看集群状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭Hadoop集群"><span class="nav-number">1.3.5.4.</span> <span class="nav-text">关闭Hadoop集群</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境及对应软件版本"><span class="nav-number">1.</span> <span class="nav-text">环境及对应软件版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">2.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-number">3.</span> <span class="nav-text">详细步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置CentOS"><span class="nav-number">3.1.</span> <span class="nav-text">配置CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加用户，并赋予用户系统权限"><span class="nav-number">3.1.1.</span> <span class="nav-text">添加用户，并赋予用户系统权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置时钟同步"><span class="nav-number">3.1.2.</span> <span class="nav-text">设置时钟同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">3.1.3.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭SELINUX"><span class="nav-number">3.1.4.</span> <span class="nav-text">关闭SELINUX</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Java环境"><span class="nav-number">3.2.</span> <span class="nav-text">配置Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">3.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">3.2.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH免密钥登录"><span class="nav-number">3.3.</span> <span class="nav-text">配置SSH免密钥登录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ssh"><span class="nav-number">3.3.1.</span> <span class="nav-text">安装ssh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主机名及host文件"><span class="nav-number">3.3.2.</span> <span class="nav-text">修改主机名及host文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置SSH免密钥登录-1"><span class="nav-number">3.3.3.</span> <span class="nav-text">配置SSH免密钥登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Hadoop环境"><span class="nav-number">3.4.</span> <span class="nav-text">配置Hadoop环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Master节点环境配置"><span class="nav-number">3.4.1.</span> <span class="nav-text">Master节点环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hadoop-安装"><span class="nav-number">3.4.1.1.</span> <span class="nav-text">Hadoop 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hadoop-配置"><span class="nav-number">3.4.1.2.</span> <span class="nav-text">Hadoop 配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slave节点环境配置"><span class="nav-number">3.4.2.</span> <span class="nav-text">Slave节点环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#复制Hadoop环境"><span class="nav-number">3.4.2.1.</span> <span class="nav-text">复制Hadoop环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除slaves文件"><span class="nav-number">3.4.2.2.</span> <span class="nav-text">删除slaves文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置Hadoop环境变量"><span class="nav-number">3.4.2.3.</span> <span class="nav-text">配置Hadoop环境变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动并运行Hadoop"><span class="nav-number">3.5.</span> <span class="nav-text">启动并运行Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化HDFS文件系统"><span class="nav-number">3.5.1.</span> <span class="nav-text">格式化HDFS文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动Hadoop集群"><span class="nav-number">3.5.2.</span> <span class="nav-text">启动Hadoop集群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看集群状态"><span class="nav-number">3.5.3.</span> <span class="nav-text">查看集群状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭Hadoop集群"><span class="nav-number">3.5.4.</span> <span class="nav-text">关闭Hadoop集群</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -952,7 +969,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Symbols count total:</span>
     
-    <span title="Symbols count total">3.7k</span>
+    <span title="Symbols count total">5.9k</span>
   
 
   
@@ -1242,7 +1259,24 @@ var jiathis_config={
         showTime(Counter);
       }
     });
-  </script>
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
@@ -1251,6 +1285,13 @@ var jiathis_config={
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   
