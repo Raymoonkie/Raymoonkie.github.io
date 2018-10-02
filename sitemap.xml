@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://moonkie.xyz/tags/index.html</loc>
+    
+    <lastmod>2018-10-02T10:07:46.632Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://moonkie.xyz//404.html</loc>
     
     <lastmod>2018-10-02T09:46:39.977Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://moonkie.xyz/2018/03/24/%E6%90%AD%E5%BB%BA%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8FHadoop%E9%9B%86%E7%BE%A4/</loc>
     
     <lastmod>2018-04-09T03:21:20.072Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://moonkie.xyz/tags/index.html</loc>
-    
-    <lastmod>2018-03-24T10:49:34.313Z</lastmod>
     
   </url>
   
