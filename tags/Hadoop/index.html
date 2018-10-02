@@ -233,10 +233,6 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="/categories/大数据//" class="article-tag-list-link color4">大数据</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据/Hadoop//" class="article-tag-list-link color2">Hadoop</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -255,6 +251,100 @@ var _hmt = _hmt || [];
     
 
 
+<hr>
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/并行计算/">并行计算</a></li></ul>
+<script src="/js/tagcanvas.js" type="text/javascript"></script>
+<div class="tags" id="myTags">
+ <canvas width="350" height="350" id="my3DTags">
+    <p>Anything in here will be replaced on browsers that support the canvas element</p>
+</canvas>
+</div>
+<div class="tags" id="tags">
+ <ul>
+  <a href="/tags/Amdahl-定律/" style="font-size: 16px; color: #000">Amdahl 定律</a> <a href="/tags/Gustafson-定律/" style="font-size: 16px; color: #000">Gustafson 定律</a> <a href="/tags/Hadoop/" style="font-size: 16px; color: #000">Hadoop</a> <a href="/tags/Sun-Ni-定律/" style="font-size: 16px; color: #000">Sun-Ni 定律</a> <a href="/tags/加速比/" style="font-size: 16px; color: #000">加速比</a> <a href="/tags/环境搭建/" style="font-size: 16px; color: #000">环境搭建</a>
+ </ul>
+</div>
+<style type="text/css">
+    .category-list li, .tags li{
+            display: inline-block;
+            margin: 0 1em .5em 0;
+            padding: 4px;
+            border: 1px solid lightgray;
+            font-size: 1.2em;
+    }
+    .category-list a {
+        color: gray;
+    }
+    .category-list:hover a {
+        color: gray;
+    }
+    .category-list-item:hover a {
+        color: gray;
+        text-decoration: none;
+        padding: 4px;
+    }
+    .category-list-item:hover {
+        background-color: #eaeaea;
+    }
+    .category-list-count {
+        margin-left: 2px;
+        font-size: .9em;
+    }
+    .article-entry ul li:before{
+        display: none;
+    }
+    .article-inner  {
+        text-align: center;
+    }
+    .article-meta {
+        display: none;
+    }
+    .article-header {
+        padding-right: 35px;
+    }
+    #container .article .article-title {
+        padding-right: 0;
+    }
+    .tags {
+        max-width: 40em;
+        margin: 2em auto;
+        margin-top: 0em;
+    }
+    .tags a {
+        margin-right: 1em;
+        line-height: 65px;
+        border-bottom: 1px solid gray;
+        white-space: nowrap;
+    }
+    .tags a:hover {
+         border-bottom: 2px solid black;
+         text-decoration: none;
+         font-style: italic;
+    }
+    .category-list-child {
+        display: none;
+    }
+</style>
+    <script type="text/javascript">
+      window.onload = function() {
+        try {
+          TagCanvas.Start('my3DTags','tags',{
+            textFont: 'Georgia,Optima',
+            textColour: null,
+            outlineColour: null,
+            weight: true,
+            reverse: true,
+            depth: 0.8,
+            maxSpeed: 0.05,
+            bgRadius: 1,
+            freezeDecel: true
+          });
+        } catch(e) {
+          // something went wrong, hide the canvas container
+          document.getElementById('myTags').style.display = 'none';
+        }
+      };
+    </script>
           </div>
         </div>
       </div>
@@ -283,7 +373,7 @@ var _hmt = _hmt || [];
 		toc_hide_index: false,
 		root: "/",
 		innerArchive: false,
-		showTags: false
+		showTags: true
 	}
 </script>
 
